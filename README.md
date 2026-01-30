@@ -54,6 +54,24 @@ More flexible for different setups<br/>
 But again — these are improvements for my workflow.<br/>
 The original project remains a great lightweight solution for single‑library setups.<br/>
 
+### Prerequisites
+
+Before running you will need to create a .env file with the required enviroment variables. Below is a a example with comments on each. The .env file only expects the values and may break if you include comments:
+
+```sh
+DOMAIN=https://YourdomainofABS.com or ipaddress:port #Either works
+LIBRARIES=xxxx,yyyy #Full 36 character library id seperated by a coma for each libraray you want to apply the conversions to
+TOKEN=API_token #Make sure you generate the api token.
+MAX_PARALLEL_CONVERSIONS=1 #Left the default of max conversions to 5 like the original. This is also PER library, so please make sure your system can handle this many per library
+BITRATE=192k #Left internal default to 128k like original. Leave blank if your fine with the default
+CRON_SETTING=*/15 * * * * #Default is 20 minutes past the hour. Please use link to figure out your cron schedule. biggest headache for me. Also spaces are expected between *
+LIBRARY_REFRESH_WAIT=15 #Default is 30 seconds. This is for how long do you want to wait (in seconds) before you push the encode process after the library refresh request. This solves a issue where the encode attempts to re-encode the same book. Bigger libraries should increase the wait time
+TZ=US/Central #Default is UTC. Use the link below to setup your local time zone. 
+```
+Addional Help:</br>
+[Cron Guru](https://crontab.guru/#*_*_*_*)
+[TZ Identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#)
+
 🙏 Credits & Appreciation<br/>
 This fork would not exist without cutzenfriend’s original work.<br/>
 Their project gave me the foundation I needed to learn, experiment, and eventually build a version that fits my own needs.<br/>
