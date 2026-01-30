@@ -1,66 +1,85 @@
-<br/>
-<p align="center">
-  <h3 align="center"><a href="https://www.audiobookshelf.org" target="_blank">Audiobookshelf</a> - Autoconverter .m4b</h3>
+📘 ABS AutoConverter — Extended & Modernized Fork
+A continuation of the original ABS AutoConverter, built with appreciation and respect for the foundation it provided.
 
-  <p align="center">
-    A Docker to automatically convert all your current and future Audiobooks within Audiobookshelf to the single file .m4b format.
-Your need (of cause) a running instance of Audiobookshelf for this Docker to work with!
-(It can run on a different host than audiobookshelf if necessary)
-    <br/>
-    <br/>
-  </p>
-</p>
+This project is an extended and modernized fork of docker‑absautoconverter by cutzenfriend.
+Original project: https://github.com/cutzenfriend/docker-absautoconverter (github.com in Bing) (bing.com in Bing) (bing.com in Bing)
 
-## About The Project
+The original project introduced the core idea that made this fork possible:
+automatically converting Audiobookshelf items to m4b format with minimal user involvement.
+It provided the foundation I learned from, experimented with, and eventually built upon.
 
-I had a huge library of Audiobooks. Some of them were already .m4b but most of them were multiple mp3's.
+This fork isn’t meant to replace the original.
+It’s meant to coexist with it — a parallel version shaped around my own learning process, goals, and workflow.
 
-I wanted to archive 3 things:
-1. Convert all my mp3 only Audiobooks to .m4b but a maximum of X in parallel (to not stress the server CPU too much).
-2. Automatic convert of newly added Audiobooks if they are not single file .m4b and let it check in cron style within a container.
-3. Don't use 3rd party software and use the built in converter of Audiobookshelf instead. So the API of Audiobookshelf was the way to go.
+Along the way, I received guidance and support from Microsoft Copilot, which helped me understand the architecture, improve the structure, and learn modern Node.js patterns. This fork reflects that collaborative learning experience.
 
-https://hub.docker.com/r/cutzenfriend/abs-autoconverter
+🌱 Why This Fork Exists
+As I worked with the original project, I realized I wanted to:
 
-## How it works
+Understand the logic more deeply
 
-1. Get all items from the specified library. Filtered so that only multifile Audiobooks get returned
-2. Start the .m4b converting process for the specified amount of Audiobooks via API
-3. Wait and repeat until no more Audiobooks to convert are available
-4. Look every (hour) for new multifile books
+Learn how to structure Node.js automation scripts
 
-## Getting Started
+Add features that fit my personal workflow
 
-The easiest way is to use the docker-compose.yml in this repository. 
+Make the code easier for me to maintain and extend
 
-### Prerequisites
+This fork reflects that learning journey.
+It keeps the spirit of the original while reorganizing the internals in a way that made sense for my own growth and future plans.
 
-Before running the container please adapt the mandatory environment variables within the docker-compose.yml:
+✨ What This Fork Adds (Built on the Original Foundation)
+These changes aren’t corrections — they’re evolutions that grew naturally as I learned more about the codebase.
 
-```sh
-version: '3.3'
-services:
-  abs-autoconverter:
-    image: cutzenfriend/abs-autoconverter:latest
-    container_name: abs-autoconverter
-    restart: unless-stopped
-    environment:
-      TZ: "Europe/Berlin"
-      DOMAIN: "https://abs.example.com" #Please edit - mandatory
-      LIBRARY_ID: "YOUR AUDIOBOOKSHELF LIBRARY ID" #Please edit - mandatory
-      MAX_PARALLEL_CONVERSIONS: 3 #Keep CPU power in mind. Too many conversion in parallel decrease performance on your host!
-      #CRON_SETTING: #optional - default is: (20 * * * * ) - every hour at minute 20
-      BITRATE: "128k" #optional - default is: 128k 
-      TOKEN: "YOUR AUDIOBOOKSHELF API TOKEN" #Please edit - mandatory
-```
+✔ Multi‑Library Support
+✔ User‑Defined Refresh Wait
+✔ Fully Async Conversion Flow
+✔ Clear, Timestamped Logging
+✔ Stronger Validation
+✔ Modular Structure
+Each of these additions came from exploring the original logic, understanding how it worked, and then extending it with help from Copilot.
 
-## Acknowledgements
+🌿 Why These Changes Help (For My Use Case)
+These updates make the script:
 
-* [audiobookshelf](https://github.com/advplyr/audiobookshelf)
+Easier for me to maintain
 
-## Built With
+Easier to extend with new features
 
-Built with the latest node container as base and 2 further node modules.
+More predictable in multi‑library environments
 
-* [Node-Cron](https://www.npmjs.com/package//node-cron)
-* [Axios](https://www.npmjs.com/package/axios)
+More transparent when debugging
+
+More flexible for different setups
+
+But again — these are improvements for my workflow.
+The original project remains a great lightweight solution for single‑library setups.
+
+🙏 Credits & Appreciation
+This fork would not exist without cutzenfriend’s original work.
+Their project gave me the foundation I needed to learn, experiment, and eventually build a version that fits my own needs.
+
+I also want to acknowledge the assistance I received from Microsoft Copilot throughout this process.
+Copilot helped me understand the architecture, reason through async behavior, and design a structure that is easier for me to maintain. This fork reflects that collaborative learning experience.
+
+This is a continuation, not a replacement.
+A companion, not a competitor.
+And a learning project that grew from the solid groundwork laid by the original author.
+
+📚 Sources & References
+This project builds on publicly available documentation and resources from the Audiobookshelf community. These references were essential in helping me understand how the API works and how to structure the automation logic in this fork.
+
+Audiobookshelf GitHub Repository
+The official source for the Audiobookshelf server, API endpoints, and core functionality.
+https://github.com/audiobookshelf/ (github.com in Bing) (bing.com in Bing)
+
+Audiobookshelf API Documentation (DeepWiki)
+A community‑maintained reference that helped clarify endpoint behavior, request formats, and expected responses.
+https://deepwiki.com/audiobookshelf/audiobookshelf-api-docs (deepwiki.com in Bing) (bing.com in Bing)
+
+These resources provided the foundation I needed to understand how Audiobookshelf handles library scans, item metadata, and conversion tools. They were invaluable during the learning process and directly informed the structure of this fork.
+
+📄 License
+This project is a fork of docker‑absautoconverter by cutzenfriend, which is released under the MIT License.
+In accordance with that license, the original copyright notice and license text are preserved in this repository.
+
+My additions and modifications are also released under the MIT License so the project remains open, accessible, and easy for others to learn from — just as the original was for me.
