@@ -2,7 +2,7 @@
 A continuation of the original ABS AutoConverter, built with appreciation and respect for the foundation it provided.
 
 This project is an extended and modernized fork of docker‑absautoconverter by cutzenfriend.<br/>
-Original project: https://github.com/cutzenfriend/docker-absautoconverter (github.com in Bing) (bing.com in Bing) (bing.com in Bing)
+Original project: [Link](https://github.com/cutzenfriend/docker-absautoconverter)
 
 The original project introduced the core idea that made this fork possible:<br/>
 automatically converting Audiobookshelf items to m4b format with minimal user involvement.<br/>
