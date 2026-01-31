@@ -84,7 +84,7 @@ Then place it on your Unraid flash drive at:<br/>
 
 /boot/config/plugins/dockerMan/templates-user/<br/>
 
-You can do this using the Unraid GUI under the Main tab the boot device.<br/>
+You can do this using the Unraid GUI under the Main tab then locate your boot device.<br/>
 
 Once the file is in that folder, Unraid will automatically detect it as a user template.<br/>
 
