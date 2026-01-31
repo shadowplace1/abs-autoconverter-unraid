@@ -70,8 +70,62 @@ TZ=US/Central #Default is UTC. Use the link below to setup your local time zone.
 ```
 
 Additional Help:</br>
-[Cron Guru](https://crontab.guru/#*_*_*_*)
-[TZ Identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#)
+[Cron Guru](https://crontab.guru/#*_*_*_*) , [TZ Identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#)
+
+📦 Manual Installation on Unraid<br/>
+If you want to run ABS AutoConverter on your Unraid server, you can install it manually using the included template. This process takes only a few minutes and gives you full control over your configuration.<br/>
+
+📁 1. Copy the Template to Your Flash Drive<br/>
+Download the template file:<br/>
+
+my-abs-autoconverter-unraid.xml<br/>
+
+Then place it on your Unraid flash drive at:<br/>
+
+/boot/config/plugins/dockerMan/templates-user/<br/>
+
+You can do this using the Unraid GUI under the Main tab the boot device.<br/>
+
+Once the file is in that folder, Unraid will automatically detect it as a user template.<br/>
+
+🧭 2. Add the Container Using the Template<br/>
+Open the Unraid Web UI<br/>
+
+Go to Docker<br/>
+
+Click Add Container<br/>
+
+In the Template dropdown, select:<br/>
+
+my-abs-autoconverter-unraid<br/>
+
+This loads all predefined settings and environment variables.<br/>
+
+⚙️ 3. Configure the Container<br/>
+Fill in the required fields:<br/>
+
+Environment Variables<br/>
+
+```sh
+DOMAIN – Your Audiobookshelf server URL
+TOKEN – Your ABS API token
+LIBRARIES – Comma‑separated list of library IDs
+BITRATE – Target bitrate for M4B encoding
+CRON_SETTING – Cron schedule for automatic runs
+LIBRARY_REFRESH_WAIT – Delay before processing after refresh
+MAX_PARALLEL_CONVERSIONS – How many items to process per library
+```
+
+▶️ 4. Start the Container
+Click Apply to pull the image from GHCR and start the service.<br/>
+
+You should now see logs indicating:
+Library refreshes<br/>
+Item discovery<br/>
+Conversion attempts<br/>
+Cron scheduling<br/>
+
+Everything runs automatically based on your configuration.<br/>
 
 🙏 Credits & Appreciation<br/>
 This fork would not exist without cutzenfriend’s original work.<br/>
