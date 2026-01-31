@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>ABS AutoConverter</Name>
+  <Repository><Repository>ghcr.io/shadowplace1/abs-autoconverter-unraid:latest</Repository>
+  <Registry>https://github.com/shadowplace1/abs-autoconverter-unraid</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/shadowplace1/abs-autoconverter-unraid/issues</Support>
+  <Project>https://github.com/shadowplace1/abs-autoconverter-unraid</Project>
+
+  <Overview>
+    ABS AutoConverter automatically converts media in your Plex/Emby/Jellyfin libraries using the ABS API. 
+    It supports scheduled conversions, bitrate control, parallel processing, and optional library refreshes.
+    This container is built from the open-source project by shadowplace1, licensed under MIT.
+  </Overview>
+
+  <Category>MediaServer:Tools</Category>
+  <WebUI/>
+  <Icon>https://raw.githubusercontent.com/shadowplace1/abs-autoconverter-unraid/main/icon.png</Icon>
+
+  <Environment>
+    <Variable>
+      <Name>DOMAIN</Name>
+      <Value></Value>
+      <Description>Base URL of your ABS server (e.g. http://192.168.1.10:7878 or http://myABSserver.com)</Description>
+      <Mode>text</Mode>
+    </Variable>
+
+    <Variable>
+      <Name>TOKEN</Name>
+      <Value></Value>
+      <Description>Your ABS API token</Description>
+      <Mode>text</Mode>
+    </Variable>
+
+    <Variable>
+      <Name>LIBRARIES</Name>
+      <Value></Value>
+      <Description>Comma-separated list of library IDs to convert (e.g. 1,2,3)</Description>
+      <Mode>text</Mode>
+    </Variable>
+
+    <Variable>
+      <Name>CRON_SETTING</Name>
+      <Value>0 */6 * * *</Value>
+      <Description>Cron schedule for automatic conversions</Description>
+      <Mode>text</Mode>
+    </Variable>
+
+    <Variable>
+      <Name>BITRATE</Name>
+      <Value>6000</Value>
+      <Description>Target bitrate for converted files</Description>
+      <Mode>text</Mode>
+    </Variable>
+
+    <Variable>
+      <Name>MAX_PARALLEL_CONVERSIONS</Name>
+      <Value>1</Value>
+      <Description>How many conversions to run at once per library</Description>
+      <Mode>text</Mode>
+    </Variable>
+
+    <Variable>
+      <Name>LIBRARY_REFRESH_WAIT</Name>
+      <Value>60</Value>
+      <Description>Seconds to wait after refreshing a library</Description>
+      <Mode>text</Mode>
+    </Variable>
+
+    <Variable>
+      <Name>TZ</Name>
+      <Value>America/Chicago</Value>
+      <Description>Timezone</Description>
+      <Mode>text</Mode>
+    </Variable>
+  </Environment>
+
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/abs-autoconverter-unraid</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+      <Description>Container config directory</Description>
+    </Volume>
+  </Data>
+
+  <DockerHubUrl/>
+  <DonateText>If you find this useful, consider supporting the developer.</DonateText>
+  <DonateLink></DonateLink>
+</Container>
