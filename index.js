@@ -7,11 +7,11 @@ const cron = require('node-cron');
 const {
   DOMAIN,
   LIBRARIES,
-  LIBRARY_REFRESH_WAIT = 30,
+  LIBRARY_REFRESH_WAIT,
   TOKEN,
-  MAX_PARALLEL_CONVERSIONS = 5,
-  CRON_SETTING = '20 * * * *',
-  BITRATE = '128k',
+  MAX_PARALLEL_CONVERSIONS,
+  CRON_SETTING,
+  BITRATE,
   TZ = 'UTC'
 } = process.env;
 

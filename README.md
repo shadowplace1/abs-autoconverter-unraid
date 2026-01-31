@@ -62,10 +62,10 @@ Before running you will need to create a .env file with the required environment
 DOMAIN=http(s)://YourdomainofABS.com or http(s)://ipaddress:port #Either version should work
 LIBRARIES=xxxx,yyyy #Full 36 character library id separated by a coma for each library you want to apply the conversions to
 TOKEN=API_token #Make sure you generate the api token.
-MAX_PARALLEL_CONVERSIONS=1 #Left the default of max conversions to 5 like the original. This is also PER library, so please make sure your system can handle this many per library
-BITRATE=192k #Left internal default to 128k like original. Leave blank if your fine with the default
-CRON_SETTING=*/15 * * * * #Default is 20 minutes past the hour. Please use link to figure out your cron schedule. biggest headache for me. Also spaces are expected between *
-LIBRARY_REFRESH_WAIT=15 #Default is 30 seconds. This is for how long do you want to wait (in seconds) before you push the encode process after the library refresh request. This solves a issue where the encode attempts to re-encode the same book. Bigger libraries should increase the wait time
+MAX_PARALLEL_CONVERSIONS=1 #This is per library.
+BITRATE=192k #Choose your desired bitrate.
+CRON_SETTING=*/15 * * * * #Please use link to figure out your cron schedule. Biggest headache for me. Also spaces are expected between *
+LIBRARY_REFRESH_WAIT=15 #This is for how long do you want to wait (in seconds) before you push the encode process after the library refresh request. This solves a issue where the encode attempts to re-encode the same book. Bigger libraries should increase the wait time
 TZ=US/Central #Default is UTC. Use the link below to setup your local time zone.
 ```
 
