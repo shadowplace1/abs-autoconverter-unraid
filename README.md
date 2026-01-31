@@ -56,11 +56,11 @@ The original project remains a great lightweight solution for single‑library s
 
 ### Prerequisites
 
-Before running you will need to create a .env file with the required enviroment variables. Below is a a example with comments on each. The .env file only expects the values and may break if you include comments:
+Before running you will need to create a .env file with the required environment variables. Below is a a example with comments on each. The .env file only expects the values and may break if you include comments:
 
 ```sh
-DOMAIN=https://YourdomainofABS.com or ipaddress:port #Either works
-LIBRARIES=xxxx,yyyy #Full 36 character library id seperated by a coma for each libraray you want to apply the conversions to
+DOMAIN=https://YourdomainofABS.com or ipaddress:port #Either version should work
+LIBRARIES=xxxx,yyyy #Full 36 character library id separated by a coma for each library you want to apply the conversions to
 TOKEN=API_token #Make sure you generate the api token.
 MAX_PARALLEL_CONVERSIONS=1 #Left the default of max conversions to 5 like the original. This is also PER library, so please make sure your system can handle this many per library
 BITRATE=192k #Left internal default to 128k like original. Leave blank if your fine with the default
